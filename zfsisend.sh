@@ -13,7 +13,16 @@ set -o errexit
 set -o nounset
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source $DIR/zfsisend.conf
+
+if [[ $# -ne 2 ]]
+then
+    echo "Insufficient arguments: '$@'" >&2
+    echo "Usage: '$0 source_filesystem destination_filesystem'" >&2
+    exit 1
+fi
+
+SRC=$1
+DEST=$2
 
 today=$(date  +"%b%d_%Y") # Replace this with a more granular name, if
                           # intra-daily snapshots desired

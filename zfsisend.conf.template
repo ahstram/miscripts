@@ -1,5 +1,0 @@
-# Name of our source ZFS filesystem:
-SRC=""
-
-# Name of our destination ZFS filesystem:
-DEST=""
